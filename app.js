@@ -189,8 +189,8 @@ async function sendEstimateToAirtable(data) {
   const result = await response.json();
 
   if (!response.ok) {
-    console.error(result);
-    alert("Error saving estimate");
+    console.error("Airtable save failed:", result);
+    alert("Error saving estimate:\n" + JSON.stringify(result, null, 2));
     return null;
   }
 

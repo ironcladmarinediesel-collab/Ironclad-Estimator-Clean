@@ -59,6 +59,8 @@ exports.handler = async function (event) {
     const airtableData = await airtableResponse.json();
 
     if (!airtableResponse.ok) {
+      console.error("Airtable error:", JSON.stringify(airtableData, null, 2));
+
       return {
         statusCode: airtableResponse.status,
         body: JSON.stringify({
